@@ -1,0 +1,28 @@
+mfs layout
+
+header start : 0xAAFF
+contents:
+ - file name    : 0x0001 filename 
+ - owner        : 0x0010 owner name
+ - total files  : 0x0002 <int total_files>
+header end   : 0xFFAA
+
+file start   : 0xAF0D <int file pointer>
+ - file data
+file end     : 0x0DAF
+
+
+How do we make this dynamically sizable?
+
+Possible Names:
+- Google Run - Not Orious
+- Google Walk
+- May Run (or not) 🏃‍♂️
+
+- Google Bike - Daisy
+- Short - daisy
+
+- Drag n Drop - ABR
+- Shit n Drive - ABR-
+
+- ShitPost Box - Jerk

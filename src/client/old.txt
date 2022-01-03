@@ -1,0 +1,17 @@
+#resp = requests.post(url, data={"makefile": "2.txt", "authToken": "new_user_user_1", "username": "new_user"})
+#print(resp.content)
+
+#print(requests.post(url, data={"makefile": "2.txt", "authToken": "new_user_user_1", "username": "new_user"}).content)
+#print(requests.put(url, data={'writefile': '2.txt', 'data': 'hello', 'authToken': 'new_user_user_1', 'username': 'new_user'}).content)
+#print(requests.get(url + "2.txt").content)
+
+
+#requests.put(url, data={'deletefile': "4.png"})
+#img = Image.open('shitpost.png')
+#requests.post(url, data={'makefile': "4.png"})
+#resp = requests.put(url, data={"writefile": "4.png", "authToken": "new_user_user_1", "username": "new_user", "data": img.tobytes()})
+
+#resp = requests.get(url + "4.png")
+
+#image = Image.frombytes('RGBA', img.size, resp.content)
+#img.save('4.png', format='PNG')
