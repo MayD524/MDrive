@@ -1,5 +1,6 @@
 from http.server import HTTPServer, SimpleHTTPRequestHandler
 from mFileSystem.mfilesys import mfilesys, display_top
+from socketserver import ThreadingMixIn
 from http.cookies import SimpleCookie
 from types import NoneType
 from MAuth import MAuth
@@ -10,6 +11,9 @@ import base64
 import os
 
 MIN_USERNAME_LENGTH = 5
+
+class ThreadedHTTPServer(ThreadingMixIn, HTTPServer):
+    """Handle requests in a separate thread."""
 
 class mhttpServer(SimpleHTTPRequestHandler):            
     def _set_response(self, cookies:SimpleCookie=None, responsecode:int=200):
@@ -226,7 +230,7 @@ class mhttpServer(SimpleHTTPRequestHandler):
 def run(server_class=HTTPServer, handler_class=mhttpServer, port=8080):
     logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
     server_address = ('', port)
-    httpd = server_class(server_address, handler_class)
+    httpd = ThreadedHTTPServer(server_address, handler_class)
     logging.info('Starting httpd...\n')
     try:
         httpd.serve_forever()
@@ -239,7 +243,7 @@ def run(server_class=HTTPServer, handler_class=mhttpServer, port=8080):
 
 if __name__ == '__main__':
     tracemalloc.start()
-    first_boot = False
+    first_boot = True
     auth = MAuth(firstBoot=first_boot, db_file='databases/users.db')
     fs   = mfilesys(firstBoot=first_boot, root_path='users/', db_file='databases/filesys.db') 
     if first_boot:

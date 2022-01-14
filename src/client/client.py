@@ -1,4 +1,3 @@
-import PIL.Image as Image
 import requests
 import os
 
@@ -18,7 +17,7 @@ url = 'http://admin:SuperAdminPasssword6742344234!!@localhost:8080/'#'http://adm
 ## renamefolder : foldername, newname : str
 ##
 
-requests.put(url, data={'deletefile': "4.png"})
+"""requests.put(url, data={'deletefile': "4.png"})
 img = Image.open('shitpost.png')
 requests.post(url, data={'makefile': "4.png"})
 resp = requests.put(url, data={"writefile": "4.png", "authToken": "new_user_user_1", "username": "new_user", "data": img.tobytes()})
@@ -26,4 +25,13 @@ resp = requests.put(url, data={"writefile": "4.png", "authToken": "new_user_user
 resp = requests.get(url + "4.png")
 
 image = Image.frombytes('RGBA', img.size, resp.content)
-img.save('4.png', format='PNG')
+img.save('4.png', format='PNG')"""
+
+#req = requests.post(url, data={"makefile": "test2.txt"})
+#print(req.content)
+
+#req = requests.put(url, data={"writefile": "test2.txt", "authToken": "admin_super_0", "username": "admin_super_0", "data": "test helfgsdfgsdfglo world"})
+#print(req.content)
+
+req = requests.get(url + "test2.txt")
+print(req.content)
